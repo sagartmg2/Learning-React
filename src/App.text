@@ -1,0 +1,618 @@
+// import { posts } from "./data/data";
+
+// export default function App() {
+
+//   const age = 90;
+//   const personName = "John";
+//   const isLogin = false;
+
+//   const person = {
+//     name: "John",
+//     age: 90
+//   };
+
+//   const habits = ["Sleeping", "Eating", "Coding"];
+
+//   return (
+//     // <div>
+//     //   <p>
+//     //     {
+//     //       isLogin
+//     //         ? `${personName.toUpperCase()} is ${age} years old and logged in`
+//     //         : `${personName.toUpperCase()} is ${age} years old but not logged in`
+//     //     }
+
+//     //     <br />
+
+//     //     {
+//     //       age >= 50 ? "Senior": "Adult"
+//     //     }
+
+//     //   </p>
+//     // </div>
+
+//     <div>
+//       {
+//         posts.map((post) => (
+//           <div key={post.id}>
+//             <h3>Title: {post.title}</h3>
+//             <p> Body: {post.body}</p>
+//             <hr />
+//           </div>
+//         ))
+//       }
+//     </div>
+    
+
+//   )
+// }
+
+// export default function App() {
+
+
+
+//   return (
+//     <div className="p-5">
+
+
+//       <div className="h-28 w-28 bg-amber-700 m-5 rounded-2xl ">
+
+//       </div>
+
+//       <h1 className="text-[40px] font-bold text-red-700 uppercase underline">hello jee</h1>
+
+//       <p className="text-4xl antialiased italic font-light tracking-wider line-clamp-2 leading-10 text-center underline decoration-emerald-600 decoration-solid decoration-2 underline-offset-2 capitalize">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea error sapiente libero harum enim, sequi, ducimus recusandae tempora tenetur sed deserunt beatae sit cupiditate illo officiis laborum a dolorum veritatis.</p>
+
+
+//       <ol className="list-image-[url('xl.png')]  list-inside">
+//         <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, alias.</li>
+//         <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, alias.</li>
+//         <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, alias.</li>
+//       </ol>
+
+
+
+//     </div>
+//   )
+// }
+
+
+// Card using Tailwind Css
+
+website design Practice 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
+export default function Hero() {
+  return (
+    <div className="text-gray-700 times">
+
+      {/* NAVBAR */}
+      <div className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-3">
+
+          {/* LOGO */}
+          <h1 className="playfair tracking-[4px] text-2xl">
+            Gourmet au Catering
+          </h1>
+
+          <div className="flex gap-6 text-2xl Times New Roman tracking-[3px]">
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+        </div>
+      </div>
+
+      {/* HERO */}
+      <div className="w-full h-screen relative">
+        <img
+          src="https://www.w3schools.com/w3images/hamburger.jpg"
+          className="w-full h-full object-cover"
+          alt=""
+        />
+
+        <h2 className="playfair absolute bottom-10 left-10 text-4xl tracking-[5px]">
+          Le Catering
+        </h2>
+      </div>
+
+      {/* ABOUT */}
+      <section id="about" className="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10 items-center">
+
+        <img
+          src="https://www.w3schools.com/w3images/tablesetting2.jpg"
+          className="w-full rounded"
+          alt=""
+        />
+
+        <div>
+          <h2 className="playfair text-3xl tracking-[4px] mb-6">
+            About Catering
+          </h2>
+
+          <p className=" text-sm mb-4 Times New Roman tracking-[3px]">
+            Tradition since 1889
+          </p>
+
+          <p className="mb-4 text-sm leading-6 Times New Roman tracking-[3px]">
+            The Catering was founded by Mr. Smith in lorem ipsum.
+          </p>
+
+          <p className="text-sm leading-6 text-gray-500 Times New Roman tracking-[3px]">
+            Excepteur sint occaecat cupidatat non proident.
+          </p>
+        </div>
+
+      </section>
+
+      {/* MENU */}
+      <section id="menu" className="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10 items-center">
+
+        <div>
+          <h2 className="playfair text-3xl tracking-[4px] mb-10">
+            Our Menu
+          </h2>
+
+          <div className="space-y-8 text-sm">
+
+            <div>
+              <h3 className="playfair tracking-[4px] text-2xl">Bread Basket</h3>
+              <p className="text-gray-500 Times New Roman tracking-[3px] ">Assortment of breads 5.50</p>
+            </div>
+
+             <div>
+              <h3 className="playfair tracking-[4px] text-2xl">Bread Basket</h3>
+              <p className="text-gray-500 Times New Roman tracking-[3px] ">Assortment of breads 5.50</p>
+            </div>
+
+              <div>
+              <h3 className="playfair tracking-[4px] text-2xl">Bread Basket</h3>
+              <p className="text-gray-500 Times New Roman tracking-[3px] ">Assortment of breads 5.50</p>
+            </div>
+
+              <div>
+              <h3 className="playfair tracking-[4px] text-2xl">Bread Basket</h3>
+              <p className="text-gray-500 Times New Roman tracking-[3px] ">Assortment of breads 5.50</p>
+            </div>
+
+              <div>
+              <h3 className="playfair tracking-[4px] text-2xl">Bread Basket</h3>
+              <p className="text-gray-500 Times New Roman tracking-[3px] ">Assortment of breads 5.50</p>
+            </div>
+
+              <div>
+              <h3 className="playfair tracking-[4px] text-2xl">Bread Basket</h3>
+              <p className="text-gray-500 Times New Roman tracking-[3px] ">Assortment of breads 5.50</p>
+            </div>
+
+          </div>
+        </div>
+
+        <img
+          src="https://www.w3schools.com/w3images/tablesetting.jpg"
+          className="w-full rounded"
+          alt=""
+        />
+
+      </section>
+
+      {/* CONTACT */}
+<section id="contact" className="max-w-4xl mx-auto py-20 px-6">
+
+  <h2 className="playfair text-3xl tracking-[4px] mb-6">
+    Contact
+  </h2>
+
+  <p className="text-sm mb-4">
+    We offer full-service catering for any event, large or small.
+  </p>
+
+  <p className="text-blue-900 font-semibold mb-6">
+    Catering Service, 42nd Living St, New York, NY 10001
+  </p>
+
+  <p className="text-sm mb-6">
+    You can also contact us by phone 00553123-2323 or email catering@gmail.com,
+    or you can send us a message here:
+  </p>
+
+  <form className="space-y-6">
+
+    <input 
+      type="text" 
+      placeholder="Name" 
+      className="w-full border-b p-2 outline-none"
+    />
+
+    <input 
+      type="number" 
+      placeholder="How many people" 
+      className="w-full border-b p-2 outline-none"
+    />
+
+    <input 
+      type="datetime-local" 
+      className="w-full border-b p-2 outline-none"
+    />
+
+    <input 
+      type="text" 
+      placeholder="Message / Special requirements" 
+      className="w-full border-b p-2 outline-none"
+    />
+
+    <button className="bg-gray-200 px-4 py-2 text-sm">
+      SEND MESSAGE
+    </button>
+
+  </form>
+
+</section>
+
+    </div>
+  );
+}
+
+
+
+
+
+
+// export default function App() {
+
+
+//   return (
+//     <div className="flex flex-col items-center justify-end  w-3xl border-2 h-100">
+
+//       <div className="text"></div>
+
+//       <div className="h-20 w-20 bg-red-400"></div>
+//       <div className="h-20 w-20 bg-gray-600"></div>
+//       <div className="h-20 w-20 bg-green-400"></div>
+//       <div className="h-20 w-20 bg-teal-800"></div>
+//       <div className="h-20 w-20 bg-amber-700"></div>
+//       <div className="h-20 w-20 bg-purple-400"></div>
+
+//     </div>
+//   )
+// }
+
+
+// export default function App() {
+
+
+//   return (
+//     <div className="grid grid-cols-3 
+//     max-w-4xl  h-100  ">
+
+//       <div className="
+//        bg-cyan-400 grow text-white">
+//         <h1 className="text-2xl">Veritcal...</h1>
+//         <p>Top title</p>
+//       </div>
+//       <div className=" bg-blue-600">
+//         <h1 className="text-2xl">Middle Title</h1>
+//         <p> with an image</p>
+//         <div className="bg-white h-300 w-300">
+//           <h1> </h1>
+//         </div>
+//       </div>
+//       <div className=" bg-green-400">
+//         <h1 className="text-2xl">Box3</h1>
+//       </div>
+//       <div className=" bg-teal-800">
+//         <h1 className="text-2xl">Box4</h1>
+//       </div>
+//       <div className=" bg-amber-700 row-span-2">
+//         <h1 className="text-2xl">Box5</h1>
+//       </div>
+//       <div className=" bg-purple-400">
+//         <h1 className="text-2xl">Box6</h1>
+//       </div>
+
+//     </div>
+//   )
+// }
+
+
+// export default function GridLayout() {
+//   return (
+//     <div className="h-screen w-screen bg-gray-200 p-6">
+      
+//       <div className="grid grid-cols-3 gap-6 h-full grid-rows-3">
+
+//         {/* Left Top */}
+//         <div className="bg-teal-500 text-white p-6 rounded-lg">
+//           <h2 className="text-xl font-semibold">Vertical...</h2>
+//           <p className="text-sm">Top tile</p>
+//         </div>
+
+//         {/* Middle (big) */}
+//         <div className="bg-blue-600 text-white p-6 rounded-lg row-span-2 flex flex-col">
+//           <h2 className="text-xl font-semibold">Middle tile</h2>
+//           <p className="text-sm mb-4">With an image</p>
+
+//           <div className="bg-gray-300 flex items-center justify-center text-gray-500 w-full aspect-4/3">
+//             640×480
+//           </div>
+//         </div>
+
+//         {/* Right Tall */}
+//         <div className="bg-green-500 text-white p-6 rounded-lg row-span-3 overflow-auto">
+//           <h2 className="text-xl font-semibold">Tall tile</h2>
+//           <p className="text-sm mb-3">With even more content</p>
+
+//           <p className="text-sm">
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+//           </p>
+//         </div>
+
+//         {/* Left Bottom */}
+//         <div className="bg-yellow-400 text-gray-800 p-6 rounded-lg">
+//           <h2 className="text-xl font-semibold">...tiles</h2>
+//           <p className="text-sm">Bottom tile</p>
+//         </div>
+
+//         {/* Wide Bottom */}
+//         <div className="bg-red-500 text-white p-6 rounded-lg col-span-2">
+//           <h2 className="text-xl font-semibold">Wide tile</h2>
+//           <p className="text-sm mb-2">Aligned with the right tile</p>
+
+//           <p className="text-sm">
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+//           </p>
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// import Amogh from './assets/img/Amogh.jpeg';
+// import Monish from './assets/img/monish.png';
+// import Praphul from './assets/img/Praphul.jpeg';
+
+
+// export default function CardUI() {
+//   return (
+//     <div className="min-h-screen bg-gray-100 p-6">
+
+
+      
+//       <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+
+        
+//         <div className="bg-white rounded-2xl shadow-xl overflow-hidden text-center">
+//           <img src={Praphul} className="w-full h-80 object-cover" />      
+
+//           <div className="p-6">
+//             <h2 className="text-red-500 font-bold text-lg mb-3 uppercase">
+//               Web Developer
+//             </h2>
+
+//             <p className="text-gray-600 text-sm mb-6">
+//               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//             </p>
+
+//             <button className="bg-red-500 text-white px-14 py-2 rounded-full hover:bg-red-600">
+//               JOIN US
+//             </button>
+//           </div>
+//         </div>
+
+//         {/* Card 2 */}
+//         <div className="bg-white rounded-2xl shadow-xl overflow-hidden text-center">
+//         <img src={Amogh} className="w-full h-80 object-cover" />
+
+//           <div className="p-6">
+//             <h2 className="text-red-500 font-bold text-lg mb-3 uppercase">
+//               Web Designer
+//             </h2>
+
+//             <p className="text-gray-600 text-sm mb-6">
+//               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//             </p>
+
+//             <button className="bg-red-500 text-white px-14 py-2 rounded-full hover:bg-red-600">
+//               JOIN US
+//             </button>
+//           </div>
+//         </div>
+
+//         {/* Card 3 */}
+//         <div className="bg-white rounded-2xl shadow-xl overflow-hidden text-center">
+//           <img src={Monish} className="w-full h-80 object-cover" />
+
+//           <div className="p-6">
+//             <h2 className="text-red-500 font-bold text-lg mb-3 uppercase">
+//               Graphic Designer
+//             </h2>
+
+//             <p className="text-gray-600 text-sm mb-6">
+//               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//             </p>
+
+//             <button className="bg-red-500 text-white px-14 py-2 rounded-full hover:bg-red-600">
+//               JOIN US
+//             </button>
+//           </div>
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// export default function App() {
+
+//   const handleEvent = () => {
+//     const value = prompt("Enter a number");
+
+//     const num = Number(value);
+
+//     if (isNaN(num)) {
+//       alert("Please enter a valid number")
+//     } else if (num % 2 === 0) {
+//       alert("Even Number")
+//     } else {
+//       alert("Odd Number")
+//     }
+//   };
+
+//   return (
+//     <div className="p-5">
+//       <button
+//         onClick={handleEvent}
+//         className="bg-black text-white p-4"
+//       >
+//         Check Even/Odd
+//       </button>
+//     </div>
+//   );
+// }
+
+
+
+
+// argument event handler is a function that takes an argument and is used as an event handler in React. It allows you to pass specific data or parameters to the function when the event is triggered. In the example below, the `handleEvent` function takes a `personName` argument and logs it to the console when the button is clicked. The button's `onClick` event is set to an arrow function that calls `handleEvent` with the argument "John".
+// function with argumentn event handler
+
+// export default function App() {
+
+//   const handleEvent = (personName) => {
+//     console.log('func call', personName);
+
+//   }
+
+//   return (
+//     <div className="p-5">
+
+
+//       <button
+//         onClick={() => handleEvent("John")}
+//         className="bg-black text-white p-4">Event Trigger</button>
+
+//     </div>
+//   )
+// }
+
+
+// Task
+// export default function App() {
+
+//   const handleCopy = () => {
+//     alert("Please don’t copy");
+//   };
+
+//   return (
+//     <div className="p-5">
+      
+//       <p onCopy={handleCopy} className="border p-4">
+//         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque dolores minima doloribus eligendi asperiores fugit dicta enim magni, labore autem quam animi odit accusantium velit quaerat temporibus qui? Voluptatem ab quae facere sapiente, repellendus omnis porro, at tenetur voluptatum iusto fugit delectus voluptate minima accusamus reprehenderit assumenda debitis in exercitationem?
+//       </p>
+
+//     </div>
+//   );
+// }
+
+
+// event bubling is a concept in JavaScript where an event triggered on a child element propagates up to its parent elements. For example, if you have a button inside a div and you click the button, the click event will first trigger on the button and then bubble up to the div, allowing you to handle the event at different levels of the DOM hierarchy. This can be useful for managing events efficiently and avoiding unnecessary event listeners on multiple child elements.
+
+// example of event bubbling:
+
+// export default function App() {
+
+//   const handleDivClick = () => {
+//     alert("Div clicked!");
+//   };        
+
+//   const handleButtonClick = (e) => {
+//     e.stopPropagation();      
+//     alert("Button clicked!");
+//   };
+  
+//   return (  
+//     <div onClick={handleDivClick} className="p-5 border"> 
+//       <button onClick={handleButtonClick} className="bg-blue-500 text-white p-2">
+//         Click Me
+//       </button>
+//     </div>
+//   );
+// } 
+
+
+
+
+// export default function App() {
+
+//   const child = () => {
+//     console.log('child called');
+//   }
+
+//   const parent = () => {
+//     console.log('parent called');
+//   }
+
+
+
+
+
+//   const func = (age) => {
+//     console.log(age);
+//   }
+
+
+//   const personAges = [11, 22, 33, 44, 55];
+
+//   // personAges.forEach((a, b) => {
+//   //   func(a);
+
+//   // });
+//   personAges.forEach(func);
+
+
+
+//   return (
+//     <div className="p-5" onClick={parent}>
+
+
+
+//       <button
+//         onClick={child}
+//         className="bg-black text-white p-4">Event Trigger</button>
+
+
+
+
+
+
+//     </div>
+//   )
+// }
+
+
+
+
+// Conditional Rendering in React allows you to render different components or elements based on certain conditions. This is typically done using JavaScript conditional statements like `if`, `else`, or ternary operators within the JSX. For example, you can conditionally render a message based on a user's login status:
+
+export default function App() {
+
+  const isLoggedIn = true; // Change this to false to see the other message
+
+  return (
+    <div className="p-5">
+      {isLoggedIn ? (
+        <h1>Welcome back, user!</h1>
+      ) : (
+        <h1>Please log in to continue.</h1>
+      )}
+    </div>
+  );
+} 
+
+
+
