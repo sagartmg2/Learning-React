@@ -3,18 +3,14 @@ import { useState } from "react";
 export default function Theme() {
   const [isDark, setIsDark] = useState(false);
 
-  // const changeToDarkMode = () => {
-  //   console.log("dark mode");
-  //   setIsDark(true);
-  // };
+  const changeToDarkMode = () => {
+    console.log("dark mode");
+    setIsDark(true);
+  };
 
-  // const changeToLightMode = () => {
-  //   console.log("light mode");
-  //   setIsDark(false);
-  // };
-
-  const changeTheme = (darkthemeStatus) => {
-    setIsDark(darkthemeStatus);
+  const changeToLightMode = () => {
+    console.log("light mode");
+    setIsDark(false);
   };
 
   return (
@@ -26,8 +22,7 @@ export default function Theme() {
       {/* show only one button */}
       {!isDark && (
         <button
-          onClick={() => changeTheme(true)}
-        
+          onClick={changeToDarkMode}
           className="border bg-white px-3 py-2 text-black rounded-xl mr-3"
         >
           dark theme
@@ -36,7 +31,7 @@ export default function Theme() {
 
       {isDark && (
         <button
-          onClick={() => changeTheme(false)}
+          onClick={changeToLightMode}
           className="border bg-white px-3 py-2 text-black rounded-xl"
         >
           light theme
