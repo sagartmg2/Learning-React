@@ -19,7 +19,6 @@ function CounterOld() {
 
   return (
     <div className="p-8">
-      {/* FIX HERE 👇 */}
       <h1 className="text-4xl">{CountValue}</h1>
 
       <button
