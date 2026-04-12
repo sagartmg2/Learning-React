@@ -43,13 +43,11 @@ export default function TodosApi() {
         <tbody>
           {todos.map((todo) => {
             const isCompleted = todo.completed;
-      
-
+    
             return (
               <tr key={todo.id}>
                 <td className="border border-gray-400 p-2">{todo.id}</td>
-                <td className="border border-gray-400 p-2">
-                  {todo.title}
+                <td className="border border-gray-400 p-2">{todo.title}
                 </td>
 
                 <td className="border border-gray-400 p-2 flex items-center">
