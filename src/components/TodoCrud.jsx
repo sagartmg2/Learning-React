@@ -1,157 +1,224 @@
-import React, { useState, useEffect } from "react";
-import { faCheckCircle, faClock } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { useState } from "react";
+import Button from "./Button";
+import { Pencil, Trash } from "lucide-react";
+import TodosCount from "./TodosCount";
 
 export default function TodosCrud() {
-  const [todos, setTodos] = useState(() => {
-    const data = localStorage.getItem("todos");
-    return data ? JSON.parse(data) : [];
-  });
-  const [title, setTitle] = useState("");
-  const [editId, setEditId] = useState(null);
-  const [editText, setEditText] = useState("");
+  // const [todos, setTodos] = useState([
+  //   {
+  //     title: "react",
+  //     status: false,
+  //   },
+  //   {
+  //     title: "css",
+  //     status: true,
+  //   },
+  // ]);
 
-  //save to localStorage
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || [] );
 
-  // add todo
+  const [ediableTodoIndex, setEediableTodoIndex] = useState(null); // 0
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title) return;
+    // let title = document.getElementById("title").value;
 
-    const newTodo = {
-      id: Date.now(),
-      title: title,
-      completed: false,
-    };
+    let title = e.target.title.value;
 
-    setTodos([...todos, newTodo]);
-    setTitle("");
+    // todos.push(title); // ERROR: cannot change state vairable directly
+    // console.log(todos);
+
+    // let tempTodos = [...todos]; // ERFERENCE variable
+    // tempTodos.push(title);
+    // setTodos(tempTodos);
+
+    setTodos([...todos, { title: title, status: false }]); // not synchronous
+
+    // console.log(todos); // we wont get the updated todos here
+    updateLocalStorage([...todos, { title: title, status: false }]);
   };
 
-  // delete
-  const handleDelete = (id) => {
-    const filtered = todos.filter((t) => t.id !== id);
-    setTodos(filtered);
+  const updateLocalStorage = (todos) => {
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
-  // toggle status
-  const toggleStatus = (id) => {
-    const updated = todos.map((t) =>
-      t.id === id ? { ...t, completed: !t.completed } : t
-    );
-    setTodos(updated);
+  const deteleTodo = (index) => {
+    console.log("delete index", index);
+
+    // todos.splice(index,1)
+    // console.log(todos);
+    // setTodos([...todos])
+
+    let tempTodos = [...todos];
+    tempTodos.splice(index, 1);
+    //  instead of splice, we can use filter as well
+    setTodos(tempTodos);
+
+    // updateLocalStorage(todos)  // wrong
+    updateLocalStorage(tempTodos);
   };
 
-  // open edit popup
-  const handleEdit = (todo) => {
-    setEditId(todo.id);
-    setEditText(todo.title);
+  const editTodo = (index) => {
+    console.log("edit todos", index);
+    setEediableTodoIndex(index);
   };
 
-  // update todo
-  const handleUpdate = () => {
-    const updated = todos.map((t) =>
-      t.id === editId ? { ...t, title: editText } : t
-    );
+  const updateTodo = (e) => {
+    e.preventDefault();
 
-    setTodos(updated);
-    setEditId(null);
+    let temp = [...todos];
+    temp[ediableTodoIndex].title = e.target.title.value;
+    temp[ediableTodoIndex].status = e.target.status.checked;
+
+    // we can use map function as well
+
+    setTodos(temp);
+    updateLocalStorage(temp);
+    closeModal();
   };
 
+  function closeModal() {
+    setEediableTodoIndex(null);
+  }
+
+  let storedTodos = JSON.parse(localStorage.getItem("todos"))
+  // setTodos(storedTodos)
+
+  console.log("render | re-render");
   return (
-    <div className="p-5">
-      <h1 className="text-xl font-bold mb-3">Todos CRUD</h1>
+    <div>
+      <h1>
+        Todos Crud <TodosCount count={todos.length} />
+      </h1>
 
-      {/* ADD FORM */}
+      <br></br>
+      <br></br>
       <form onSubmit={handleSubmit}>
         <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter task"
-          className="border p-2"
+          name="title"
+          id="title"
+          placeholder="title"
+          className="border p-3 disabled:bg-gray-200"
         />
-        <button className="ml-2 border px-3">Add</button>
+        <Button
+          // type="button"
+          // type="submit"
+          // disabled
+          // onClick={(e) => {
+          //   handleSubmit(e);
+          // }}
+          size="lg"
+          rounded
+        >
+          <span>Add tag</span>
+        </Button>
+
+        {/* <Button size="ms" rounded>
+          <span>submit</span>
+        </Button>
+        <Button size="lg" rounded>
+          <span>submit</span>
+        </Button>
+        <Button rounded>
+          <span>submit</span>
+        </Button>
+
+        <Button label="submit" />
+        <SmallButton label="submit" />
+        <RoundedButton label="submit" /> */}
       </form>
+      <br />
+      <br />
 
-      {/* TABLE */}
-      <table className="border mt-5 w-full border-collapse">
-        <thead>
-          <tr>
-            <th className="border p-2">No</th>
-            <th className="border p-2">Task</th>
-            <th className="border p-2">Status</th>
-            <th className="border p-2">Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {todos.map((todo, index) => (
-            <tr key={todo.id}>
-              <td className="border p-2">{index + 1}</td>
-
-              <td className="border p-2">{todo.title}</td>
-
-              {/* STATUS */}
-              <td
-                className="border p-2 cursor-pointer"
+      <ul className="list-disc pl-10">
+        {todos.map((el, index) => {
+          return (
+            <li key={index}>
+              {el.title} ({el.status ? "completed" : "pending"})
+              <Button
+                onClick={() => {
+                  editTodo(index);
+                }}
+                size="sm"
+                rounded
+                className="bg-gray-400"
               >
-                <button  className="mr-2 text-blue-500" onClick={() => toggleStatus(todo.id)}>update</button>
-                {todo.completed ? " Completed" : " Pending"}
-              </td>
+                <Pencil className="inline mr-1" />
+                edit
+              </Button>
+              <Button
+                size="sm"
+                rounded
+                className="bg-red-600"
+                onClick={() => {
+                  deteleTodo(index);
+                }}
+              >
+                <Trash className="inline mr-1" />
+                delete
+              </Button>
+            </li>
+          );
+        })}
+      </ul>
 
-              {/* ACTION */}
-              <td className="border p-2">
-                <button
-                  onClick={() => handleEdit(todo)}
-                  className="mr-2 text-blue-500"
-                >
-                  Edit
-                </button>
-
-                <button
-                  onClick={() => handleDelete(todo.id)}
-                  className="text-red-500"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      {/* EDIT POPUP */}
-      {editId && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center">
-          <div className="bg-white p-5 rounded">
-            <h2 className="mb-2 font-semibold">Edit Task</h2>
-
+      {/* popup
+      height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    */}
+      {ediableTodoIndex != null && (
+        <div
+          onClick={() => {
+            setEediableTodoIndex(null);
+          }}
+          className={`backdrop bg-black] opacity-50] bg-[rgba(0,0,0,0.5)]  h-screen fixed top-0 right-0 bottom-0 left-0`}
+        >
+          <form
+            onSubmit={updateTodo}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            className="bg-white w-1/2 mt-16 mx-auto p-4"
+          >
+            <p>Edit Todo</p>
+            <br />
             <input
-              value={editText}
-              onChange={(e) => setEditText(e.target.value)}
-              className="border p-2 w-full"
+              // value="react"
+              // onChange={(e) =>{e.target.value}}
+              defaultValue={todos[ediableTodoIndex].title}
+              name="title"
+              id="title"
+              placeholder="title"
+              className="border p-3 disabled:bg-gray-200"
             />
-
-            <div className="mt-3">
-              <button
-                onClick={handleUpdate}
-                className="mr-2 bg-green-500 text-white px-3 py-1"
-              >
-                Save
-              </button>
-
-              <button
-                onClick={() => setEditId(null)}
-                className="bg-gray-400 px-3 py-1"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
+            <br />
+            <br />
+            <input
+              // checked={true}
+              // onChange
+              defaultChecked={todos[ediableTodoIndex].status}
+              id="status"
+              name="status"
+              type="checkbox"
+              className="border p-3 h-5 w-5 disabled:bg-gray-200 mr-3"
+            />
+            <label htmlFor="status">completed status</label>
+            <br />
+            <br />
+            <Button>update</Button>
+          </form>
         </div>
       )}
+
+      {/* <table>
+        <td>{el} (completed)</li>
+      </table> */}
     </div>
   );
 }
