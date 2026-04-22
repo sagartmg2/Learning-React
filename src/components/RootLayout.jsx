@@ -1,5 +1,7 @@
 import { Outlet } from "react-router";
 import Header from "./Header.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function RootLayout() {
   return (
@@ -11,7 +13,7 @@ export default function RootLayout() {
 
         <Outlet />
 
-        
+         <ToastContainer />
 
       </main>
 

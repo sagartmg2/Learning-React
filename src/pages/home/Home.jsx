@@ -8,12 +8,17 @@ import TodoApp from "../../components/TodoApp.jsx";
 import TodosCrud from "../../components/TodoCrud.jsx";
 import Products from "../../components/Products.jsx";
 import ProductsApi from "../../components/ProductsApi.jsx";
+import TodoCrudApicopy from "../../components/TodoCrudApicopy.jsx";
+
 
 
 export default function Home() {
   return (
+
+    
     <div>
-      <ProductsApi/>
+       <TodoCrudApicopy/>
+      {/* <ProductsApi/> */}
       {/* <Products/> */}
       {/* <TodosCrud /> */}
       {/* <TodoApp /> */}

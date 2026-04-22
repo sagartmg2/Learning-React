@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Button from "./Button";
+import Button from "./Ui/Button";
 import { Pencil, Trash } from "lucide-react";
 import TodosCount from "./TodosCount";
 
