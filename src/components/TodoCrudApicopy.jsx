@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Button from "./Ui/Button";
 import Input from "./Ui/Input";
 import { toast } from "react-toastify";
-import { Pencil } from "lucide-react";
 
 export default function TodosCrudApi() {
   const [todos, setTodos] = useState([]);
@@ -123,7 +122,6 @@ export default function TodosCrudApi() {
               label="Delete"
               size="sm"
               rounded
-              icon={Pencil}
             />
           </li>
         ))}

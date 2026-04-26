@@ -1,4 +1,4 @@
-function Button({ label, children, size, icon , rounded, className, ...rest }) {
+function Button({ label, children, size, rounded, className, ...rest }) {
   let sizeClss = "px-6 py-2";
   if (size == "sm") {
     sizeClss = "px-2 py-1";
